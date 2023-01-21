@@ -1,0 +1,51 @@
+mgs: Prod Profile
+spring:
+  cloud:
+    discovery:
+      enabled: true
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://202.161.191.133:4352/db_uaa_prod
+    username: dev
+    password: Po$tGr3@321$%
+    #data: classpath:/component-moduleX-submodule.sql,classpath:/role.sql,classpath:/permissions.sql,classpath:/user-role.sql,classpath:/role_permission.sql,classpath:/url-data.sql,classpath:/api-endpoints.sql,classpath:/navigations.sql
+    initialization-mode: always
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+
+    # Eureka Server
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.1.14
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.1.14:8761/eureka/
+#Feign connection
+feign:
+  client:
+    pps-configuration: http://202.161.191.131:9403/pps-configuration/
+    project-concept: http://202.161.191.131:9403/pps-pc/
+
+# Key
+config:
+  oauth2:
+    clientid: ibcsplanningidsdp
+    clientSecret: planningIdsdpsha$@#929%
+    privateKey: -----BEGIN RSA PRIVATE KEY-----MIIEpAIBAAKCAQEAqO6gisH+I7vONsPXyNDmncR2WdoiGWSLBzeNdbQa2bT7Pnnm11QlPngKAiRzL+u9NS0Hu4IU3HZEOOf+kjn8WZmGtjRgXF1ikp8oG6IR0fKPNbh6OoW+J0oKcp6HDot68s/HaucFLSLSlOy4T39XblGv2uaaienSaUzWviwcroZUlfEsZFE9BW4CYGxWJ3cUqmzeIl2Cmyq71QXWndVNC9iBwSmd7AiRhnMyATGbO8sAwh3cXkekCFxrke6WtOo0vkpzeL7kDMgY8msypdtTgPhUfwRGVhF6V6yN6VgfaJqzVlQO+Ned5Gg0GQKSjMm69ycS9llrD5Hvkkq/z1cANwIDAQABAoIBAFrDErhab/us7KdZ43a+XhlHs7qkywtPjK7M9xDVOlPbu90eS5tHV1dP0TjDcqu9gYOvdOcWhbTJSfA1HP5dbyqIpOsCCv+1IL/cCQWHtwFQzAa13d3Re4/KZQCeEbwLznvkjKTwCETu36sp4AC+TzAzbUM0ALW2TdlLcljshGBzZjj6ABPe8G46yLnXQ8pCzMBX1MwMYzeOLZdkD/2mkRGu9dt4KJFZsdCqYp/BZXxTpRf7l0RhRrl1pZHFjJN52hsPJIDmifuIVlOblSS643qmvON6v2FLFdC3gmhsYSIvme9Jk2p30FdrTNoJ8KT2wrU4AjKQXyYeRFJ+QR0p6jECgYEA1Sb5TcHg8oMYqQFxtxjZdKUJ81krmmfLDZ6OI9W20xwWg1Juf3/m+FCVGUeGLmw63VN1cFDx8yfAQK5YMFkySZtkirCd2uIVO9aoD9w2eLeLocUl0IBJuPK+drWeaZwZjwp4fbmf4BU77DKUS3TmQHRY1ZAX1jFHER9LTbFBUvkCgYEAyuQK8msaY3AzBo5U30XwiYotUX0/FiDpQ/rhpd8YzrGWgV7NHsZigCk8wXxuMQchU4snMff4XdnHxogpIS/eARJqBh//3I/hGPlJUjt95eRjnuXfV05fOFVEYfyHmR68OHrbgujHEpTB6YFdnbqP5Hw6WTZIFVknIabakqgziK8CgYEApz6jUk2TkPUn/kOx0/ZdeVadjiEjQ025VwBXiup/PvnE+FlPdh8HPUMNGf6y2+3z6gE4Hl6E2UMRaC7j51u1R2fz5ZZa5YmLG55706X335Q0rUOhPg3KyqE8rKwolbjznPacQBnLxekjUVsGXIZmu6AOq9MZwOh9WIPzdAxmsxECgYBL3Cgbq+AZ/gGWGfGx6byeMIPxTBsicvvE5zEni9sCrXPQu1mGgDakJMcKsTOiMUBMtGLbVBQRQzRnDtISDou7at8pmx1XopRPeiXoEUZphpOY/eocArmnnnoLCRjKL6vAkm8w60hDsksuu6f9KZxTmf9XC+y3zrXK51AiNbHPEQKBgQDM12Ur5FiKuCXR+7RypK8ssv2sz8YTPrcEsZYvh6USg8sxIOv9NXb7ABMGJ507xRXbizsOsMLbbD7fukNHd4ha1sJTJcr2lsD/qpJn3fHkPoKEqxvBIeup94arlJUJxorNDpNgXooFooA0hp1jtuLRe3PtoBh461/YLTzplxU63g==-----END RSA PRIVATE KEY-----
+    publicKey: -----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqO6gisH+I7vONsPXyNDmncR2WdoiGWSLBzeNdbQa2bT7Pnnm11QlPngKAiRzL+u9NS0Hu4IU3HZEOOf+kjn8WZmGtjRgXF1ikp8oG6IR0fKPNbh6OoW+J0oKcp6HDot68s/HaucFLSLSlOy4T39XblGv2uaaienSaUzWviwcroZUlfEsZFE9BW4CYGxWJ3cUqmzeIl2Cmyq71QXWndVNC9iBwSmd7AiRhnMyATGbO8sAwh3cXkekCFxrke6WtOo0vkpzeL7kDMgY8msypdtTgPhUfwRGVhF6V6yN6VgfaJqzVlQO+Ned5Gg0GQKSjMm69ycS9llrD5Hvkkq/z1cANwIDAQAB-----END PUBLIC KEY-----
+# Frontend Link
+idsdp:
+  frontend:
+    verification:
+      link: http://192.168.1.14:4200/account-verification/
