@@ -1,0 +1,35 @@
+mgs: Dev
+environments:
+  eureka-ip: localhost
+  gateway-ip: localhost
+#  frontend-verification-link: localhost
+spring:
+  profiles: sql
+  # Database
+  datasource:
+    url: jdbc:sqlserver://localhost:1434;databaseName=PMS
+    username: sa
+    password: pms
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    initialization-mode: never
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    open-in-view: false
+    generate-ddl: true
+    # Eureka Server
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: ${environments.eureka-ip}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${environments.eureka-ip}:8761/eureka/
