@@ -13,14 +13,18 @@ spring:
       naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
-        default_schema: NGPIMS_LIVE
+        default_schema: SYSCIM
         id.new_generator_mappings: true
-        dialect: org.hibernate.dialect.Oracle10gDialect
+        dialect: org.hibernate.dialect.Oracle12cDialect
   datasource:
-    driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:XE
-    username: NGPIMS_LIVE
-    password: NGPIMS#$Bp123
+    url: jdbc:oracle:XE:@//182.163.101.182:1521/ORCL
+    username: SYSCIM
+    password: a
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@localhost:1521:XE
+#    username: NGPIMS_LIVE
+#    password: NGPIMS#$Bp123
 
 # Eureka Server
 eureka:

@@ -7,11 +7,16 @@ spring:
   profiles: dev
   # Database
   datasource:
-    platform: postgres
-    url: jdbc:postgresql://localhost:5432/
-    username: postgres
-    password: 1234
-    driverClassName: org.postgresql.Driver
+    url: jdbc:oracle:thin:@//182.163.101.182:1521/ORCL
+    username: SYSCIM
+    password: a
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+#    platform: postgres
+#    url: jdbc:postgresql://localhost:5432/
+#    username: postgres
+#    password: 1234
+#    driverClassName: org.postgresql.Driver
     initialization-mode: never
     hikari:
       connectionTimeout: 30000
