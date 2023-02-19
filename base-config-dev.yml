@@ -13,14 +13,19 @@ spring:
       naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
-        default_schema: SYSCIM
+        default_schema: postgres
         id.new_generator_mappings: true
-        dialect: org.hibernate.dialect.Oracle12cDialect
+#        dialect: org.hibernate.dialect.Oracle12cDialect
   datasource:
-    url: jdbc:oracle:XE:@//182.163.101.182:1521/ORCL
-    username: SYSCIM
-    password: a
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: 1234
+    driverClassName: org.postgresql.Driver
+#    url: jdbc:oracle:thin:@//localhost:1521/
+#    username: NGPIMS_LIVE
+#    password: NGPIMS#$Bp123
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
 #    driver-class-name: oracle.jdbc.OracleDriver
 #    url: jdbc:oracle:thin:@localhost:1521:XE
 #    username: NGPIMS_LIVE
